@@ -3,6 +3,12 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: klakegg/hugo:0.101.0-ubuntu
     steps:
-      - name: git command
-        run: git --version
+      - name: clone this repository
+        uses: actions/checkout@v2
+      - name: build hugo site
+        run: hugo
+      - name: print result
+        run: pwd; ls
