@@ -1,5 +1,8 @@
 name: deploy
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -8,10 +11,13 @@ jobs:
     steps:
       - name: clone this repository
         uses: actions/checkout@v2
-      #- name: change directory
-      #  run: cd src
-      #- name: print location
-      #  run: pwd; ls;
       - name: build hugo site
-        run: hugo
+        run: hugo --minify
         working-directory: src
+      - name: deploy build data to github.io repository
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          external_repository: mtsalt/mtsalt.github.io
+          publish_branch: main
+          
