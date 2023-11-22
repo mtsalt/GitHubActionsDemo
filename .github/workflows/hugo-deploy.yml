@@ -6,11 +6,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
-    container:
-      image: klakegg/hugo:0.101.0-ubuntu
     steps:
       - name: clone this repository
         uses: actions/checkout@v2
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.101.0'
       - name: build hugo site
         run: hugo --minify
         working-directory: src
