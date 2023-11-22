@@ -8,9 +8,10 @@ jobs:
     steps:
       - name: clone this repository
         uses: actions/checkout@v2
-      - name: change directory
-        run: cd src
-      - name: print location
-        run: pwd; ls;
+      #- name: change directory
+      #  run: cd src
+      #- name: print location
+      #  run: pwd; ls;
       - name: build hugo site
         run: hugo
+        working-directory: src
