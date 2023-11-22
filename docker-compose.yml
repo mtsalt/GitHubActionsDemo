@@ -1,0 +1,15 @@
+version: '3'
+services:
+  hugo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # args:
+      #   - THEME_REPO_URL=${THEME_REPO_URL}
+      #   - THEME_TITLE=${THEME_TITLE}
+    entrypoint: tail -f /dev/null
+    working_dir: /src
+    volumes:
+      - ./src:/src
+    ports:
+      - "1313:1313"
