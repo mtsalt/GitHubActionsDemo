@@ -19,5 +19,6 @@ jobs:
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           external_repository: mtsalt/mtsalt.github.io
+          publish_dir: ./src/public
           publish_branch: main
           
