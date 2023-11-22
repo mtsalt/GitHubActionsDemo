@@ -17,7 +17,7 @@ jobs:
       - name: deploy build data to github.io repository
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          deploy_key: ${{ secrets.GITHUBPAGES }}
           external_repository: mtsalt/mtsalt.github.io
           publish_dir: ./src/public
           publish_branch: main
